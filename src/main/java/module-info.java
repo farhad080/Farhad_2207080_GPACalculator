@@ -10,6 +10,7 @@ module com.example.gpacalculator {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
     requires com.almasb.fxgl.all;
+    requires javafx.graphics;
 
     opens com.example.gpacalculator to javafx.fxml;
     exports com.example.gpacalculator;
