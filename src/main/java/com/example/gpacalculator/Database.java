@@ -13,15 +13,25 @@ public class Database {
         try (Connection conn = DriverManager.getConnection(DB_URL)) {
 
             if (conn != null) {
+                String sql = "CREATE TABLE IF NOT EXISTS courses (" +
+                        "id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "name TEXT NOT NULL, " +
+                        "code TEXT NOT NULL, " +
+                        "credit REAL NOT NULL, " +
+                        "teacher1 TEXT, " +
+                        "teacher2 TEXT, " +
+                        "grade TEXT" +
+                        ");";
 
+                Statement stmt = conn.createStatement();
+                stmt.execute(sql);
 
-                System.out.println("Database initialized successfully!");
             }
 
         } catch (SQLException e) {
-            System.out.println("Database Error: " + e.getMessage());
         }
     }
+
 
     public static Connection getConnection() throws SQLException {
         return DriverManager.getConnection(DB_URL);
